@@ -1,0 +1,52 @@
+.homePage{
+    padding: 100px;
+    background-size: cover;
+    color: rgb(30, 3, 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-size: cover;
+    flex-direction: row;
+    width: 50%;
+    white-space: normal;
+}
+
+.allProducts{
+    display: inline-block;
+    width: 20%;
+    white-space: normal;
+}
+
+
+.productImage{
+    display: inline-block;
+    width: 100%;
+    white-space: normal;
+}
+
+.addToCart{
+    color: black;
+    background-color: dodgerblue;
+}
+
+.link{
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-basis: 200px;
+    align-self: flex-start;
+    color: blue;
+    background-color: whitesmoke;
+    text-rendering: inherit;
+    text-decoration: none;
+    text-justify: newspaper;
+    padding: 10px;
+    color: rgb(88, 29, 10);
+    background-color: gold;  
+  }
+  
