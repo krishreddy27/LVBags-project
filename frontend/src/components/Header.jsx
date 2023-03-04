@@ -4,6 +4,7 @@ import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 import Home from './Home.jsx';
 import Mobile from './Mobile';
 import '../index.css'
+import mainLogo from '../images/mainLogo.png'
 
 const Header = () => {
     const [dropdown, setDrpDown] = useState("");
@@ -20,7 +21,7 @@ const Header = () => {
         <>
             <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
                 <Container>
-                    <Navbar.Brand href="/">ShopIn</Navbar.Brand>
+                    <Navbar.Brand href="/"><img src={mainLogo} alt="Logo" style={{ width: '50px', height: '50px', position: 'absolute', top: '10px', left: '10px' }}/></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
