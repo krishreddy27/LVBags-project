@@ -15,15 +15,15 @@ const Product = ({ product }) => {
                 <Card.Body>
                     <a href={`/product/${product._id}`}>
                         <Card.Title as='div'>
-                            <strong>{product.productName}</strong>
+                            <strong>{product.bagName}</strong>
                         </Card.Title>
                     </a>
                     <Card.Text as='div'>
                         <div className='my-3'>
-                            {product.description}
+                            {product.bagDescription.description}
                         </div>
                     </Card.Text>
-                    <Card.Text>${product.price}</Card.Text>
+                    <Card.Text>₹{product.bagPrice}</Card.Text>
                     <Rating />
                     <br />
                     <div className='py-2'>

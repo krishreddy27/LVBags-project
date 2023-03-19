@@ -9,9 +9,9 @@ import Mobile from './Mobile';
 class Home extends Component {
   constructor(props) {
     super(props);
-    const URL = "http://localhost:8000/products"
+    const URL = "http://localhost:8000/bags"
     this.state = {
-      products: [],
+      bags: [],
       cart: [],
       cartModal: false
     }
@@ -22,7 +22,7 @@ class Home extends Component {
 
 
   componentDidMount() {
-    this.getProducts()
+    this.getBagsData()
   }
 
   addToCart = (id) => {
@@ -45,11 +45,11 @@ class Home extends Component {
       })
   }
 
-  getProducts = () => {
-    axios.get("http://localhost:8000/products")
+  getBagsData = () => {
+    axios.get("http://localhost:8000/bags/")
       .then(response => {
-        this.setState({ products: response.data })
-        console.log(this.state.products)
+        this.setState({ bags: response.data })
+        console.log(this.state.bags)
       })
       .catch(err => {
         console.log(err);
@@ -72,10 +72,10 @@ class Home extends Component {
       return (
         <>
           <Row>
-            {this.state.products &&
-              this.state.products.map((products, index) => (
+            {this.state.bags &&
+              this.state.bags.map((bag, index) => (
                 <Col sm={12} md={6} lg={4} xl={3} key={index}>
-                  <Product product={products} />
+                  <Product product={bag}/>
                 </Col>
               ))}
           </Row>

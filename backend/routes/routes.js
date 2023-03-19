@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const Products = require('../models/Products')
+const BagsInfo = require('../models/BagsInfo')
 
 
 router.get('/', async (req, res) => {
     try {
-        const allProducts = await Products.find();
-        if (allProducts) {
-            res.send(allProducts)
+        const bags = await BagsInfo.find();
+        if (bags) {
+            res.send(bags)
         }
-        console.log(allProducts);
+        console.log(bags);
     } catch (err) {
         console.log(err)
         res.send(err)
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 
 router.get('/allProducts', (req, res) => {
     try {
-        Products.collection.find().toArray(function (err, result) {
+        BagsInfo.collection.find().toArray(function (err, result) {
             res.send(result).status(200)
         })
     } catch (err) {
@@ -54,9 +54,9 @@ router.get('/type/:type', async (req, res) => {
         productType: new RegExp(req.params.type, 'i')
     }
     try {
-        const mobiles = await Products.find(query)
-        res.send(mobiles).status(200);
-        console.log(mobiles)
+        const bagType = await BagsInfo.find(query)
+        res.send(bagType).status(200);
+        console.log(bagType)
     } catch (err) {
         res.json({ message: "Error Occurred" }).status(400);
     }

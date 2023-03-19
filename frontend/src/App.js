@@ -15,21 +15,25 @@ import Login from './auth/Login';
 import { ProductScreen } from './screens/ProductScreen';
 import Register from './auth/Register';
 import './bootstrap.min.css';
+import {RandomComponent} from "./auth/RonadomComponent";
+
 
 function App(props) {
   const history = createBrowserHistory();
+  console.log("Props from App Class", props.user)
   return (
       <>
         <main>
-          <Header />
+          {/*<Header />*/}
           <Routes className="route">
-            <Route path='/' element={<Home />} />
+              {props.user === "true" ? <Route path='/' element={<Home />} /> : <Route path='/' element={<Login />} />}
+            <Route path='/' element={<Login />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/mobiles' element={<Mobile />} />
             <Route path='/addProducts' element={<AddProducts />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/seller' element={<Sellerpage />} />
-            {/*<Route path='/login' element={<Login/>} />*/}
+            {<Route path='/login' element={<Login/>} />}
             <Route path='/product/:id' element={<ProductScreen />} />
             <Route path='/register' element={<Register />} />
           </Routes>

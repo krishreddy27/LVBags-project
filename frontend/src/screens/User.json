@@ -1,0 +1,30 @@
+{
+  "firstName" : "Siva",
+  "lastName" : "Kasa",
+  "middleName": "KrishnaReddy",
+  "email" : "sivakreddy.k7@gmail.com",
+  "password" : "Sivakrishna@12 ",
+  "mobile" :  "7396391972",
+  "address" : [
+    {
+      "addressLine1" : "18-524, Jhansi Nagar",
+      "addressLine2" : "pottipadu Road",
+      "landmark" : "Proddatur",
+      "city" : "Kadapa",
+      "state" : "Andhra Pradesh",
+      "country" : "India"
+    }
+  ],
+  "cart" : [
+    {
+      "productName" : "StickBags",
+      "productType" : "Stick",
+      "productQuantity" : 500,
+      "productPrice" : 15,
+      "totalPrice" : 8400,
+      "gst" : "12"
+    }
+  ],
+  "updateTimeStamp" : "",
+  "startTimeStamp" : "19-03-2023"
+}
