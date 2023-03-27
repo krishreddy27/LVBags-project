@@ -11,14 +11,15 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
 import './authcss/login.css'
 import Home from "../components/Home";
+import {useDispatch} from "react-redux";
 
-const App = () => {
+const Login = ({msg}) => {
     const [otp, setOtp] = useState("");
     const [ph, setPh] = useState("");
     const [loading, setLoading] = useState(false);
     const [showOTP, setShowOTP] = useState(false);
     const [user, setUser] = useState(null);
-
+    const dispatch = useDispatch();
     function onCaptchVerify() {
         if (!window.recaptchaVerifier) {
             window.recaptchaVerifier = new RecaptchaVerifier(
@@ -64,11 +65,17 @@ const App = () => {
                 console.log(res);
                 setUser(res.user);
                 setLoading(false);
+                dispatch("LOGIN");
             })
             .catch((err) => {
                 console.log(err);
                 setLoading(false);
             });
+        if(user != null){
+            return(
+                {msg}
+            )
+        }
     }
 
     return (
@@ -80,7 +87,6 @@ const App = () => {
                 {user ? (
                     <h2 className="text-center text-white font-medium text-2xl">
                         👍Login Success
-                        <App user = "true"/>
                     </h2>
                 ) : (
                     <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
@@ -139,4 +145,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default Login;

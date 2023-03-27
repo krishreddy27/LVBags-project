@@ -16,21 +16,22 @@ authRouter.post("/register", async (req, res) => {
     console.log("Entering into", methodName)
     try {
         let emailFlag = false;
+        console.log("Request eamil", req.body.email)
         const existedUser = await Users.find({ email: req.body.email })
-        console.log(existedUser);
-        emailFlag = existedUser.length > 0 ? true : false;
+        emailFlag = existedUser.length >=1;
+        console.log("emailFlag", emailFlag)
         if (emailFlag === false) {
             const newUser = new Users({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
+                middleName : req.body.middleName,
                 email: req.body.email,
                 password: req.body.password,
-                status: req.body.status,
-                membershipStatus: req.body.membershipStatus,
+                mobile: req.body.mobile,
                 address: req.body.address,
-                likedPosts: req.body.likedPosts,
-                wallet: req.body.wallet,
-                triggered_date: req.body.triggered_date
+                cart: req.body.cart,
+                updateTimeStamp: req.body.updateTimeStamp,
+                startTimeStamp: req.body.startTimeStamp
             })
 
             newUser ?
@@ -51,6 +52,7 @@ authRouter.post("/register", async (req, res) => {
 })
 
 //Register User from UI Side
+/*
 authRouter.post("/registerUser", async (req, res) => {
     const methodName = "Register User from ForntEnd"
     try {
@@ -58,7 +60,7 @@ authRouter.post("/registerUser", async (req, res) => {
         let emailFlag = false;
         const existedUser = await Users.find({ email: req.body.email })
         console.log(existedUser);
-        emailFlag = existedUser.length > 0 ? true : false;
+        emailFlag = existedUser.length > 0;
         console.log(emailFlag)
         const date = new Date();
         console.log(date)
@@ -66,14 +68,14 @@ authRouter.post("/registerUser", async (req, res) => {
             const newUser = new Users({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
+                middleName : req.body.middleName,
                 email: req.body.email,
                 password: req.body.password,
-                status: "active",
-                membershipStatus: "inactive",
+                mobile: req.body.mobile,
                 address: req.body.address,
-                likedPosts: req.body.likedPosts,
-                wallet: req.body.wallet,
-                triggered_date: date
+                cart: req.body.cart,
+                updateTimeStamp: req.body.updateTimeStamp,
+                startTimeStamp: req.body.startTimeStamp
             })
 
             newUser ?
@@ -93,6 +95,7 @@ authRouter.post("/registerUser", async (req, res) => {
     console.log("Exiting from ", methodName)
 })
 
+*/
 
 
 

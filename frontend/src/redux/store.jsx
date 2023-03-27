@@ -1,13 +1,42 @@
-import React from 'react'
-import {createStore} from 'redux'
+import { createStore } from 'redux';
 
-function countReducer({state = {count:0}, action}) {
-  return (
-    <div>
-        <h1>Redux</h1>
-    </div>
-  )
-}
+// Define initial state
+const initialState = {
+    isLoggedIn: false,
+};
 
-export default countReducer
+// Define action types
+const LOGIN = 'LOGIN';
+const LOGOUT = 'LOGOUT';
 
+// Define actions
+export const login = () => ({
+    type: LOGIN,
+});
+
+export const logout = () => ({
+    type: LOGOUT,
+});
+
+// Define reducer
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case LOGIN:
+            return {
+                ...state,
+                isLoggedIn: true,
+            };
+        case LOGOUT:
+            return {
+                ...state,
+                isLoggedIn: false,
+            };
+        default:
+            return state;
+    }
+};
+
+// Create store
+const store = createStore(reducer);
+
+export default store;

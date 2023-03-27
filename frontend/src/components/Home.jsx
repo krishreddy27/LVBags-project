@@ -49,7 +49,7 @@ class Home extends Component {
     axios.get("http://localhost:8000/bags/")
       .then(response => {
         this.setState({ bags: response.data })
-        console.log(this.state.bags)
+        console.log("Method: getBagsData entering"+this.state.bags)
       })
       .catch(err => {
         console.log(err);
@@ -60,15 +60,11 @@ class Home extends Component {
     this.setState({ cartModal: !this.state.cartModal })
   }
 
-  closeHnadler = () => {
+  closeHandler = () => {
     this.setState({ cartModal: false })
   }
   render() {
-    if (this.props === 'Mobiles') {
-      return (
-        <Mobile />
-      )
-    } else {
+      console.log("Home Component")
       return (
         <>
           <Row>
@@ -81,7 +77,6 @@ class Home extends Component {
           </Row>
         </>
       )
-    }
   }
 }
 

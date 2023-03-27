@@ -18,13 +18,13 @@ const Users = new mongoose.Schema({
         require: true,
         default: Date.now
     },
-    status: {
+    middleName: {
         type: String,
         require: false
     },
-    membershipStatus: {
-        type: String,
-        require: false,
+    mobile: {
+        type: Number,
+        require: true,
         sparse: true
     },
     address: [{
@@ -35,20 +35,25 @@ const Users = new mongoose.Schema({
         country: { type: String },
         pincode: { type: String }
     }],
-    likedPosts: {
-        type: String,
+    cart :[{
+        productName: {type : String},
+        productType : {type:String},
+        productPrice : {type : Number},
+        productQuantity : {type : Number},
+        totalPrice : {type:Number},
+        gst : {type:String}
+
+    }],
+    updatedTimeStamp: {
+        type: Date,
         require: false
     },
-    wallet: {
-        type: Number,
-        require: false
-    },
-    triggered_date: {
+    startTimeStamp: {
         type: Date,
         require: true
     }
 })
 
-const UsersList = mongoose.model("UsersList", Users);
+const UsersList = mongoose.model("UserModel", Users);
 module.exports = UsersList;
 

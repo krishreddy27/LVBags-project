@@ -122,17 +122,6 @@ input {
   margin-top: 30px;
 }
 
-label,
-input,
-button {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: none;
-  outline: none;
-  box-sizing: border-box;
-}
-
 label {
   margin-bottom: 4px;
   color: black;
