@@ -4,7 +4,7 @@ import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 import Home from './Home.jsx';
 import Mobile from './Mobile';
 import '../index.css'
-import mainLogo from '../images/mainLogo.png'
+import mainLogo from '../images/mainLogoFinalVersion.png'
 
 const Header = () => {
     const [dropdown, setDrpDown] = useState("");
@@ -19,18 +19,22 @@ const Header = () => {
     }
     return (
         <>
-            <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
+            <Navbar className='navbar-header' bg="black" variant='dark' expand="lg" collapseOnSelect>
                 <Container>
-                    <Navbar.Brand href="/"><img src={mainLogo} alt="Logo" style={{ width: '50px', height: '50px', position: 'absolute', top: '10px', left: '10px' }}/></Navbar.Brand>
+                    <Navbar.Brand href="/"><img src={mainLogo} alt="Logo" className='logo-image' /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/seller">Become a Seller</Nav.Link>
+                            <div class="search-container">
+                                <input type="text" class="search-input" placeholder="Search..."/>
+                                    <button type="submit" class="search-button">Search</button>
+                            </div>
                             <NavDropdown onChange={handleChange} id="basic-nav-dropdown" >
                                 <NavDropdown.Item href="/furniture" value="Furniture">Furniture</NavDropdown.Item>
                                 <NavDropdown.Item value="Mobiles">Mobiles</NavDropdown.Item>
-                                <NavDropdown.Item href="watches" value = "Watches">Watches</NavDropdown.Item>
+                                <NavDropdown.Item href="watches" value="Watches">Watches</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="">
                                 </NavDropdown.Item>

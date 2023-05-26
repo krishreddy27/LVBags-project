@@ -6,14 +6,15 @@ import OtpInput from "otp-input-react";
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import {auth} from "./firebase";
+import { auth } from "./firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
 import './authcss/login.css'
 import Home from "../components/Home";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
+import { Link } from 'react-router-dom';
 
-const Login = ({msg}) => {
+const Login = ({ msg }) => {
     const [otp, setOtp] = useState("");
     const [ph, setPh] = useState("");
     const [loading, setLoading] = useState(false);
@@ -29,7 +30,7 @@ const Login = ({msg}) => {
                     callback: (response) => {
                         onSignup();
                     },
-                    "expired-callback": () => {},
+                    "expired-callback": () => { },
                 },
                 auth
             );
@@ -71,76 +72,74 @@ const Login = ({msg}) => {
                 console.log(err);
                 setLoading(false);
             });
-        if(user != null){
-            return(
-                {msg}
+        if (user != null) {
+            return (
+                { msg }
             )
         }
     }
 
     return (
         <>
-        <section className="login-page">
-            <div>
-                <Toaster toastOptions={{ duration: 4000 }} />
-                <div id="recaptcha-container"></div>
-                {user ? (
-                    <h2 className="text-center text-white font-medium text-2xl">
-                        👍Login Success
-                    </h2>
-                ) : (
-                    <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
-                        <h1 className="text-center leading-normal text-white font-medium text-3xl mb-6">
-                            Welcome to <br /> LVBags
-                        </h1>
-                        <br/>
-                        {showOTP ? (
-                            <>
-                                <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
-                                    <BsFillShieldLockFill size={30} />
-                                </div>
-                                <label
-                                    htmlFor="otp"
-                                    className="font-bold text-xl text-white text-center"
-                                >
-                                    Enter your OTP
-                                </label>
-                                <OtpInput
-                                    value={otp}
-                                    onChange={setOtp}
-                                    OTPLength={6}
-                                    otpType="number"
-                                    disabled={false}
-                                    autoFocus
-                                    className="opt-container "
-                                ></OtpInput>
-                                <button
-                                    onClick={onOTPVerify}
-                                    className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
-                                >
-                                    {loading && (
-                                        <CgSpinner size={20} className="mt-1 animate-spin" />
-                                    )}
-                                    <span>Verify OTP</span>
-                                </button>
-                            </>
-                        ) : (
-                            <>
-                                <h6><span>Sigin with your Number</span></h6>
-                                <PhoneInput country={"in"} value={ph} onChange={setPh} />
-                                <br/>
-                                <div onClick={onSignup} className="button-send-code">
-                                    {loading && (
-                                        <CgSpinner size={20} className="mt-1 animate-spin" />
-                                    )}
-                                    <span>Send code via SMS</span>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                )}
-            </div>
-        </section>
+            <section div="login-page">
+                <div>
+                    <Toaster toastOptions={{ duration: 4000 }} />
+                    <div id="recaptcha-container"></div>
+                    {user ? (
+                        <h2 className="text-center text-white font-medium text-2xl">
+                            👍Login Success
+                        </h2>
+                    ) : (
+                        <div className="otp-page">
+                            {showOTP ? (
+                                <>
+                                    <div className="otp-input">
+                                        <BsFillShieldLockFill size={30} />
+                                    </div>
+                                    <label
+                                        htmlFor="otp"
+                                        className="font-bold text-xl text-white text-center"
+                                    >
+                                        Enter your OTP
+                                    </label>
+                                    <OtpInput
+                                        value={otp}
+                                        onChange={setOtp}
+                                        OTPLength={6}
+                                        otpType="number"
+                                        disabled={false}
+                                        autoFocus
+                                        className="opt-container "
+                                    ></OtpInput>
+                                    <br />
+                                    <div
+                                        onClick={onOTPVerify}
+                                        className="verify-otp-button"
+                                    >
+                                        {loading && (
+                                            <CgSpinner size={20} className="mt-1 animate-spin" />
+                                        )}
+                                        <span>Verify OTP</span>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <h6><span>Please Sigin with your Number</span></h6>
+                                    <PhoneInput country={"in"} value={ph} onChange={setPh}  />
+                                    <div onClick={onSignup} className="button-send-code">
+                                        {loading && (
+                                            <CgSpinner size={20} className="mt-1 animate-spin" />
+                                        )}
+                                        <span>Send code via SMS</span>
+                                    </div>
+                                    <br />
+                                    <span className='signin-link' >If you have already account, <Link to='/signin' className='link-signin'>click here to signin</Link></span>
+                                </>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </section>
         </>
     );
 };

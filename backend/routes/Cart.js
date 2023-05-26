@@ -65,4 +65,12 @@ cartRouter.get("/", async(req,res)=>{
     }
 })
 
+cartRouter.get("", async(req,res) =>{
+    try{
+        
+    }catch(err){
+
+    }
+})
+
 module.exports = cartRouter

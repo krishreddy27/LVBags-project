@@ -1,15 +1,15 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+    monospace;
 }
 
 .link {
@@ -159,4 +159,36 @@ button {
 
 button:hover {
   box-shadow: none;
+}
+
+.logo-image {
+  width: 160px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-header {
+  height: 80px;
+  margin-top: -13px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  padding-left: 50%;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px;
+  font-size: 3px;
+}
+
+.search-button {
+  padding: 7px;
+  font-size: 10px;
 }

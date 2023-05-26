@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const BagsInfo = new mongoose.Schema({
     bagName :{
         type : String,
-        required : true
+        require : true
     },
     bagSize :{
         type : Array,
@@ -14,24 +14,33 @@ const BagsInfo = new mongoose.Schema({
         required : true
     },
     bagPrice : {
-        type : Number,
-        default : Date.now
+        manualPrice : {
+            typer : Number,
+        }, 
+        autoPrice : {
+            type : Number,
+        }
     },
     bagDescription : {
         type : Object,
         required : false
     },
     image : {
-        type : String,
-        required : true,
-        sparse : true
+         manualBagImage: {
+            type: String,
+            required: true
+        },
+        autoBagImage: {
+            type: String,
+            required: true
+        }
     },
     minimumQuantity : {
         type : String,
         required : false
     },
     printing : {
-        type : String,
+        type : Array,
         required : true
     }
 })

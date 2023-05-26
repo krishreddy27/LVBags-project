@@ -47,3 +47,5 @@ export function Session(){
 
 
 }
+
+export default Session;

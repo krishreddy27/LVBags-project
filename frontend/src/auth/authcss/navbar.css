@@ -1,0 +1,16 @@
+.navbar {
+    height: 10px;
+    /* Set the navbar height */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    /* Set the navbar-brand height to 100% */
+}
+
+.navbar-logo {
+    height: 10%;
+    /* Set the logo height to 100% */
+}
